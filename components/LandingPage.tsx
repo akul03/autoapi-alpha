@@ -145,12 +145,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="relative h-[400px] w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/50">
-                            {/* Placeholder for "Problem" visual - could be a chaotic code screenshot or similar */}
+                        <div className="relative h-[400px] w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/50 group">
                             <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent" />
-                            <div className="absolute inset-0 flex items-center justify-center text-stone-600 font-mono text-sm">
-                                [Legacy API Infrastructure Visual]
-                            </div>
+                            <img
+                                src="/legacy_api_chaos.png"
+                                alt="Legacy API Chaos"
+                                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent" />
                         </div>
                     </div>
                 </div>
@@ -160,13 +162,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             <section className="py-24 bg-stone-950 border-b border-stone-900 relative overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="order-2 lg:order-1 relative h-[400px] w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/50">
+                        <div className="order-2 lg:order-1 relative h-[400px] w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/50 group">
                             <div className="absolute inset-0 bg-accent/5" />
-                            {/* Reusing QuantumScene here as the "Solution" visual */}
-                            <div className="w-full h-full absolute inset-0">
-                                {/* Simplified Quantum Scene or similar abstract visual */}
-                                <HeroScene />
-                            </div>
+                            <img
+                                src="/api_docs_json.png"
+                                alt="Autonomous API Intelligence"
+                                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent" />
                         </div>
                         <div className="order-1 lg:order-2">
                             <div className="inline-block mb-4 px-3 py-1 bg-accent/20 text-accent text-xs tracking-widest uppercase font-bold rounded-full border border-accent/20 shadow-glow">
