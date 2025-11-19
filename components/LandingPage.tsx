@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroScene } from './QuantumScene';
-import { InfiniteMovingCards } from './ui/infinite-moving-cards';
+import { EvervaultCard, Icon } from './ui/evervault-card';
 import { EncryptedText } from './ui/encrypted-text';
 import { ArrowDown, Check, Shield, Zap, Layout, Code, Lock, Activity, Terminal, Cpu, Globe, Server, BookOpen } from 'lucide-react';
 
@@ -344,53 +344,58 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white">Everything You Need</h2>
                     </div>
-                    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-stone-950 dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-                        <InfiniteMovingCards
-                            items={[
-                                {
-                                    quote: "From schema to deployed API in seconds.",
-                                    name: "AI API Generator",
-                                    title: "Automation"
-                                },
-                                {
-                                    quote: "Always up-to-date OpenAPI & SDKs.",
-                                    name: "Auto-Docs",
-                                    title: "Documentation"
-                                },
-                                {
-                                    quote: "Real-time metrics and tracing.",
-                                    name: "Observability",
-                                    title: "Monitoring"
-                                },
-                                {
-                                    quote: "Block malicious traffic automatically.",
-                                    name: "Threat Detection",
-                                    title: "Security"
-                                },
-                                {
-                                    quote: "Drag-and-drop API workflow builder.",
-                                    name: "Visual Composer",
-                                    title: "Design"
-                                },
-                                {
-                                    quote: "Role-based access and audit logs.",
-                                    name: "Governance",
-                                    title: "Control"
-                                },
-                                {
-                                    quote: "Client libraries in 10+ languages.",
-                                    name: "SDK Generator",
-                                    title: "Integration"
-                                },
-                                {
-                                    quote: "Deploy to AWS, GCP, or Azure.",
-                                    name: "Multi-Cloud",
-                                    title: "Infrastructure"
-                                }
-                            ]}
-                            direction="right"
-                            speed="slow"
-                        />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        {[
+                            {
+                                title: "AI Schema Gen",
+                                description: "Instantly generate OpenAPI schemas from natural language descriptions. No more manual YAML wrangling.",
+                                tag: "Generative"
+                            },
+                            {
+                                title: "Auto-Mocking",
+                                description: "Zero-config mock servers that evolve with your API design. Test before you code.",
+                                tag: "Testing"
+                            },
+                            {
+                                title: "Security Shield",
+                                description: "Real-time threat detection and automated policy enforcement to keep your endpoints safe.",
+                                tag: "Security"
+                            },
+                            {
+                                title: "Global Edge",
+                                description: "Deploy your APIs to 35+ regions in seconds with a single click. Low latency, everywhere.",
+                                tag: "Infrastructure"
+                            },
+                            {
+                                title: "Docs as Code",
+                                description: "Beautiful, interactive documentation that never goes out of sync. Generated automatically.",
+                                tag: "Documentation"
+                            },
+                            {
+                                title: "Analytics Core",
+                                description: "Deep insights into API usage, latency, and error rates. Debug faster with granular traces.",
+                                tag: "Observability"
+                            }
+                        ].map((feature, idx) => (
+                            <div key={idx} className="border border-white/[0.2] flex flex-col items-start p-4 relative h-[30rem] bg-stone-950/50 backdrop-blur-sm rounded-xl overflow-hidden">
+                                <Icon className="absolute h-6 w-6 -top-3 -left-3 text-stone-500" />
+                                <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-stone-500" />
+                                <Icon className="absolute h-6 w-6 -top-3 -right-3 text-stone-500" />
+                                <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-stone-500" />
+
+                                <EvervaultCard text={feature.title} />
+
+                                <h2 className="text-white mt-4 text-lg font-bold">
+                                    {feature.title}
+                                </h2>
+                                <p className="text-stone-400 mt-2 text-sm leading-relaxed">
+                                    {feature.description}
+                                </p>
+                                <p className="text-xs border border-white/[0.2] rounded-full mt-4 text-stone-300 px-2 py-0.5">
+                                    {feature.tag}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -484,6 +489,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     © 2025 AutoAPI Inc. All rights reserved.
                 </div>
             </footer>
-        </div>
+        </div >
     );
 };
