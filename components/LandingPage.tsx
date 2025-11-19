@@ -80,13 +80,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
             <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} defaultTab={authTab} />
 
             {/* Hero Section */}
-            <header className="relative h-screen flex items-center justify-center overflow-hidden">
+            <header className="relative min-h-screen flex items-center justify-center overflow-x-hidden py-20">
                 <HeroScene />
 
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(2,6,23,0.8)_0%,rgba(2,6,23,0.95)_100%)]" />
 
-                <div className="relative z-10 container mx-auto px-6 text-center">
+                <div className="relative z-30 container mx-auto px-6 text-center">
                     <div className="inline-block mb-4 px-3 py-1 border border-accent/50 text-accent text-xs tracking-[0.2em] uppercase font-bold rounded-full backdrop-blur-sm bg-accent/10 shadow-glow">
                         AI-Native API Platform
                     </div>
