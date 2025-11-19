@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroScene } from './QuantumScene';
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { EvervaultCard, Icon } from './ui/evervault-card';
 import { EncryptedText } from './ui/encrypted-text';
 import { AuthModal } from './AuthModal';
@@ -370,60 +371,43 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 </div>
             </section>
 
-            {/* Features Grid (2x2 Layout like Photon) */}
+            {/* Features Grid (Hover Effect) */}
             <section className="py-24 bg-stone-950 border-t border-stone-900">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white">Everything You Need</h2>
                         <p className="text-stone-400 max-w-2xl mx-auto">Complete toolkit for the modern API lifecycle.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                        {[
+                    <div className="max-w-5xl mx-auto">
+                        <HoverEffect items={[
                             {
-                                title: "AI Schema Gen",
-                                description: "Instantly generate OpenAPI schemas from natural language descriptions. No more manual YAML wrangling.",
-                                tag: "Generative"
+                                title: "AI Generates APIs Automatically",
+                                description: "Upload a dataset, schema, model, or service → AutoAPI instantly creates production-ready APIs, routes, and docs. No boilerplate.",
                             },
                             {
-                                title: "Auto-Mocking",
-                                description: "Zero-config mock servers that evolve with your API design. Test before you code.",
-                                tag: "Testing"
+                                title: "Autonomous Observability",
+                                description: "Continuously monitors Traffic, Errors, Latency, Patterns, and Anomalies. It alerts you before an API breaks — not after.",
                             },
                             {
-                                title: "Security Shield",
-                                description: "Real-time threat detection and automated policy enforcement to keep your endpoints safe.",
-                                tag: "Security"
+                                title: "AI-Powered Security Intelligence",
+                                description: "Actively detects leaked keys, suspicious traffic, vulnerable endpoints, and shadow APIs. Like a security analyst built-in.",
                             },
                             {
-                                title: "Global Edge",
-                                description: "Deploy your APIs to 35+ regions in seconds with a single click. Low latency, everywhere.",
-                                tag: "Infrastructure"
+                                title: "Auto-Documentation & SDKs",
+                                description: "Generates Swagger/OpenAPI, Code samples, SDKs, and migration notes automatically. Documentation never becomes stale.",
+                            },
+                            {
+                                title: "Visual API Composer",
+                                description: "Combine APIs, transform data, and build workflows visually without writing a single line of backend code.",
+                            },
+                            {
+                                title: "End-to-End Governance",
+                                description: "Rate limits, access control, auth, versioning, deprecation, and lifecycle rules — all enforced automatically.",
                             }
-                        ].map((feature, idx) => (
-                            <div key={idx} className="border border-white/[0.1] flex flex-col items-start p-6 relative h-[24rem] bg-stone-900/30 hover:bg-stone-900/50 transition-colors rounded-2xl overflow-hidden group">
-                                <Icon className="absolute h-6 w-6 -top-3 -left-3 text-stone-700 group-hover:text-accent transition-colors" />
-                                <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-stone-700 group-hover:text-accent transition-colors" />
-                                <Icon className="absolute h-6 w-6 -top-3 -right-3 text-stone-700 group-hover:text-accent transition-colors" />
-                                <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-stone-700 group-hover:text-accent transition-colors" />
-
-                                <div className="flex-1 w-full flex items-center justify-center">
-                                    <EvervaultCard text={feature.title} />
-                                </div>
-
-                                <div className="mt-4 w-full">
-                                    <h2 className="text-white text-xl font-bold mb-2">
-                                        {feature.title}
-                                    </h2>
-                                    <p className="text-stone-400 text-sm leading-relaxed">
-                                        {feature.description}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+                        ]} />
                     </div>
                 </div>
             </section>
-
             {/* Pricing */}
             <section className="py-24 bg-[#020617]">
                 <div className="container mx-auto px-6">
