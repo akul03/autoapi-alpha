@@ -1,10 +1,11 @@
 import React from 'react';
 import { HeroScene } from './QuantumScene';
 import { HoverEffect } from "@/components/ui/card-hover-effect";
-import { EvervaultCard, Icon } from './ui/evervault-card';
+import AutoApiEngine from './AutoApiEngine';
+import { EvervaultCard } from './ui/evervault-card';
 import { EncryptedText } from './ui/encrypted-text';
 import { AuthModal } from './AuthModal';
-import { ArrowDown, Check, Shield, Zap, Layout, Code, Lock, Activity, Terminal, Cpu, Globe, Server, BookOpen } from 'lucide-react';
+import { ArrowDown, Check, Shield, Zap, Layout, Code, Lock, Activity, Terminal, Cpu, Globe, Server, BookOpen, Icon } from 'lucide-react';
 
 interface LandingPageProps {
     onNavigate: (page: string) => void;
@@ -42,7 +43,7 @@ const PricingCard = ({ title, price, features, recommended = false, onSignup }: 
         </ul>
         <button
             onClick={onSignup}
-            className={`w-full py-3 rounded-lg font-medium transition-colors ${recommended ? 'bg-accent text-stone-900 hover:bg-cyan-400' : 'bg-stone-800 text-white hover:bg-stone-700'}`}
+            className={`w-full py-3 rounded-lg font-medium transition-colors ${recommended ? 'bg-accent text-stone-900 hover:bg-cyan-400' : 'bg-stone-800 text-white hover:bg-stone-700'} `}
         >
             {price === 'Custom' ? 'Contact Sales' : 'Get Started'}
         </button>
@@ -58,9 +59,9 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="font-medium text-white text-lg group-hover:text-accent transition-colors">{question}</span>
-                <ArrowDown className={`text-stone-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-accent' : ''}`} size={20} />
+                <ArrowDown className={`text-stone-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-accent' : ''} `} size={20} />
             </button>
-            <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100 mb-6' : 'max-h-0 opacity-0'}`}>
+            <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100 mb-6' : 'max-h-0 opacity-0'} `}>
                 <p className="text-stone-400 leading-relaxed">{answer}</p>
             </div>
         </div>
@@ -282,7 +283,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                                         </div>
                                         <div className="flex gap-1 h-8 items-end">
                                             {[40, 35, 55, 42, 38, 45, 42].map((h, i) => (
-                                                <div key={i} className="flex-1 bg-stone-800 hover:bg-accent/50 transition-colors rounded-sm" style={{ height: `${h}%` }}></div>
+                                                <div key={i} className="flex-1 bg-stone-800 hover:bg-accent/50 transition-colors rounded-sm" style={{ height: `${h}% ` }}></div>
                                             ))}
                                         </div>
                                     </div>
@@ -411,6 +412,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     </div>
                 </div>
             </section>
+
+            {/* Autonomous Engine Animation */}
+            <section className="bg-black">
+                <AutoApiEngine />
+            </section>
+
             {/* Pricing */}
             <section className="py-24 bg-[#020617]">
                 <div className="container mx-auto px-6">
