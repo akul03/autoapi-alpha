@@ -102,15 +102,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                         <button
                             onClick={() => openAuth('signup')}
-                            className="px-8 py-4 bg-accent text-stone-900 rounded-full font-bold hover:bg-cyan-400 transition-all shadow-glow transform hover:-translate-y-1 z-20"
+                            className="px-8 py-4 bg-cyan-500 text-black rounded-full font-bold hover:bg-cyan-400 transition-all shadow-glow transform hover:-translate-y-1 z-20 cursor-pointer"
                         >
                             Get Started
                         </button>
                         <button
                             onClick={() => openAuth('login')}
-                            className="px-8 py-4 bg-transparent text-white border border-stone-600 rounded-full font-medium hover:bg-stone-800 hover:border-accent transition-all shadow-sm z-20"
+                            className="px-8 py-4 bg-transparent text-white border border-stone-600 rounded-full font-medium hover:bg-stone-800 hover:border-cyan-500 transition-all shadow-sm z-20 cursor-pointer"
                         >
-                            Try Sandbox Environment
+                            Get a Demo
                         </button>
                     </div>
                 </div>
