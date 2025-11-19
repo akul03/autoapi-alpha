@@ -115,9 +115,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 </div>
             </header>
 
-            {/* Problem & Solution */}
+            {/* Problem Section (Text Left, Image Right) */}
             <section className="py-24 bg-[#020617] border-b border-stone-900 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -145,25 +144,47 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                                 </li>
                             </ul>
                         </div>
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-accent/10 blur-[80px] rounded-full"></div>
-                            <div className="relative bg-stone-900/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-stone-800 text-stone-300">
-                                <div className="inline-block mb-4 px-3 py-1 bg-accent/20 text-accent text-xs tracking-widest uppercase font-bold rounded-full border border-accent/20 shadow-glow">
-                                    The Solution
+                        <div className="relative h-[400px] w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/50">
+                            {/* Placeholder for "Problem" visual - could be a chaotic code screenshot or similar */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-transparent" />
+                            <div className="absolute inset-0 flex items-center justify-center text-stone-600 font-mono text-sm">
+                                [Legacy API Infrastructure Visual]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Solution Section (Image Left, Text Right) */}
+            <section className="py-24 bg-stone-950 border-b border-stone-900 relative overflow-hidden">
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="order-2 lg:order-1 relative h-[400px] w-full rounded-2xl overflow-hidden border border-stone-800 bg-stone-900/50">
+                            <div className="absolute inset-0 bg-accent/5" />
+                            {/* Reusing QuantumScene here as the "Solution" visual */}
+                            <div className="w-full h-full absolute inset-0">
+                                {/* Simplified Quantum Scene or similar abstract visual */}
+                                <HeroScene />
+                            </div>
+                        </div>
+                        <div className="order-1 lg:order-2">
+                            <div className="inline-block mb-4 px-3 py-1 bg-accent/20 text-accent text-xs tracking-widest uppercase font-bold rounded-full border border-accent/20 shadow-glow">
+                                The Solution
+                            </div>
+                            <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white leading-tight">
+                                Autonomous <br /><span className="text-accent drop-shadow-[0_0_15px_rgba(6,182,212,0.3)]">Intelligence</span>
+                            </h2>
+                            <p className="text-lg text-stone-400 mb-6 leading-relaxed">
+                                AutoAPI eliminates the grunt work. Our AI engine understands your data and business logic to build, secure, and maintain your API infrastructure <strong className="text-white">autonomously</strong>.
+                            </p>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="p-4 bg-stone-900/50 rounded-lg border border-stone-800">
+                                    <div className="text-2xl font-bold text-white mb-1">10x</div>
+                                    <div className="text-xs uppercase tracking-wider text-stone-500">Faster Ship Time</div>
                                 </div>
-                                <h3 className="font-serif text-3xl text-white mb-4">Autonomous Intelligence</h3>
-                                <p className="mb-8 leading-relaxed text-stone-400">
-                                    AutoAPI eliminates the grunt work. Our AI engine understands your data and business logic to build, secure, and maintain your API infrastructure <strong className="text-white">autonomously</strong>.
-                                </p>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="p-4 bg-stone-950/50 rounded-lg border border-stone-800">
-                                        <div className="text-2xl font-bold text-white mb-1">10x</div>
-                                        <div className="text-xs uppercase tracking-wider text-stone-500">Faster Ship Time</div>
-                                    </div>
-                                    <div className="p-4 bg-stone-950/50 rounded-lg border border-stone-800">
-                                        <div className="text-2xl font-bold text-white mb-1">0</div>
-                                        <div className="text-xs uppercase tracking-wider text-stone-500">Boilerplate Lines</div>
-                                    </div>
+                                <div className="p-4 bg-stone-900/50 rounded-lg border border-stone-800">
+                                    <div className="text-2xl font-bold text-white mb-1">0%</div>
+                                    <div className="text-xs uppercase tracking-wider text-stone-500">Boilerplate Code</div>
                                 </div>
                             </div>
                         </div>
@@ -349,13 +370,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                 </div>
             </section>
 
-            {/* Features Grid */}
+            {/* Features Grid (2x2 Layout like Photon) */}
             <section className="py-24 bg-stone-950 border-t border-stone-900">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white">Everything You Need</h2>
+                        <p className="text-stone-400 max-w-2xl mx-auto">Complete toolkit for the modern API lifecycle.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                         {[
                             {
                                 title: "AI Schema Gen",
@@ -376,35 +398,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                                 title: "Global Edge",
                                 description: "Deploy your APIs to 35+ regions in seconds with a single click. Low latency, everywhere.",
                                 tag: "Infrastructure"
-                            },
-                            {
-                                title: "Docs as Code",
-                                description: "Beautiful, interactive documentation that never goes out of sync. Generated automatically.",
-                                tag: "Documentation"
-                            },
-                            {
-                                title: "Analytics Core",
-                                description: "Deep insights into API usage, latency, and error rates. Debug faster with granular traces.",
-                                tag: "Observability"
                             }
                         ].map((feature, idx) => (
-                            <div key={idx} className="border border-white/[0.2] flex flex-col items-start p-4 relative h-[30rem] bg-stone-950/50 backdrop-blur-sm rounded-xl overflow-hidden">
-                                <Icon className="absolute h-6 w-6 -top-3 -left-3 text-stone-500" />
-                                <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-stone-500" />
-                                <Icon className="absolute h-6 w-6 -top-3 -right-3 text-stone-500" />
-                                <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-stone-500" />
+                            <div key={idx} className="border border-white/[0.1] flex flex-col items-start p-6 relative h-[24rem] bg-stone-900/30 hover:bg-stone-900/50 transition-colors rounded-2xl overflow-hidden group">
+                                <Icon className="absolute h-6 w-6 -top-3 -left-3 text-stone-700 group-hover:text-accent transition-colors" />
+                                <Icon className="absolute h-6 w-6 -bottom-3 -left-3 text-stone-700 group-hover:text-accent transition-colors" />
+                                <Icon className="absolute h-6 w-6 -top-3 -right-3 text-stone-700 group-hover:text-accent transition-colors" />
+                                <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-stone-700 group-hover:text-accent transition-colors" />
 
-                                <EvervaultCard text={feature.title} />
+                                <div className="flex-1 w-full flex items-center justify-center">
+                                    <EvervaultCard text={feature.title} />
+                                </div>
 
-                                <h2 className="text-white mt-4 text-lg font-bold">
-                                    {feature.title}
-                                </h2>
-                                <p className="text-stone-400 mt-2 text-sm leading-relaxed">
-                                    {feature.description}
-                                </p>
-                                <p className="text-xs border border-white/[0.2] rounded-full mt-4 text-stone-300 px-2 py-0.5">
-                                    {feature.tag}
-                                </p>
+                                <div className="mt-4 w-full">
+                                    <h2 className="text-white text-xl font-bold mb-2">
+                                        {feature.title}
+                                    </h2>
+                                    <p className="text-stone-400 text-sm leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
