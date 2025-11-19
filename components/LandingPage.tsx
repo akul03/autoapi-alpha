@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroScene } from './QuantumScene';
+import { InfiniteMovingCards } from './ui/infinite-moving-cards';
 import { ArrowDown, Check, Shield, Zap, Layout, Code, Lock, Activity, Terminal, Cpu, Globe, Server, BookOpen } from 'lucide-react';
 
 interface LandingPageProps {
@@ -341,15 +342,53 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white">Everything You Need</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <FeatureCard icon={Cpu} title="AI API Generator" description="From schema to deployed API in seconds." delay="0s" />
-                        <FeatureCard icon={BookOpen} title="Auto-Docs" description="Always up-to-date OpenAPI & SDKs." delay="0.1s" />
-                        <FeatureCard icon={Activity} title="Observability" description="Real-time metrics and tracing." delay="0.2s" />
-                        <FeatureCard icon={Shield} title="Threat Detection" description="Block malicious traffic automatically." delay="0.3s" />
-                        <FeatureCard icon={Layout} title="Visual Composer" description="Drag-and-drop API workflow builder." delay="0.4s" />
-                        <FeatureCard icon={Lock} title="Governance" description="Role-based access and audit logs." delay="0.5s" />
-                        <FeatureCard icon={Code} title="SDK Generator" description="Client libraries in 10+ languages." delay="0.6s" />
-                        <FeatureCard icon={Server} title="Multi-Cloud" description="Deploy to AWS, GCP, or Azure." delay="0.7s" />
+                    <div className="h-[20rem] rounded-md flex flex-col antialiased bg-stone-950 dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+                        <InfiniteMovingCards
+                            items={[
+                                {
+                                    quote: "From schema to deployed API in seconds.",
+                                    name: "AI API Generator",
+                                    title: "Automation"
+                                },
+                                {
+                                    quote: "Always up-to-date OpenAPI & SDKs.",
+                                    name: "Auto-Docs",
+                                    title: "Documentation"
+                                },
+                                {
+                                    quote: "Real-time metrics and tracing.",
+                                    name: "Observability",
+                                    title: "Monitoring"
+                                },
+                                {
+                                    quote: "Block malicious traffic automatically.",
+                                    name: "Threat Detection",
+                                    title: "Security"
+                                },
+                                {
+                                    quote: "Drag-and-drop API workflow builder.",
+                                    name: "Visual Composer",
+                                    title: "Design"
+                                },
+                                {
+                                    quote: "Role-based access and audit logs.",
+                                    name: "Governance",
+                                    title: "Control"
+                                },
+                                {
+                                    quote: "Client libraries in 10+ languages.",
+                                    name: "SDK Generator",
+                                    title: "Integration"
+                                },
+                                {
+                                    quote: "Deploy to AWS, GCP, or Azure.",
+                                    name: "Multi-Cloud",
+                                    title: "Infrastructure"
+                                }
+                            ]}
+                            direction="right"
+                            speed="slow"
+                        />
                     </div>
                 </div>
             </section>
