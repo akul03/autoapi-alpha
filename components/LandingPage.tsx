@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroScene } from './QuantumScene';
 import { InfiniteMovingCards } from './ui/infinite-moving-cards';
+import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import { ArrowDown, Check, Shield, Zap, Layout, Code, Lock, Activity, Terminal, Cpu, Globe, Server, BookOpen } from 'lucide-react';
 
 interface LandingPageProps {
@@ -78,9 +79,34 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                     <div className="inline-block mb-4 px-3 py-1 border border-accent/50 text-accent text-xs tracking-[0.2em] uppercase font-bold rounded-full backdrop-blur-sm bg-accent/10 shadow-glow">
                         AI-Native API Platform
                     </div>
-                    <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight md:leading-[0.9] mb-8 text-white drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-                        The Autonomous <br /><span className="italic font-normal text-stone-400 text-4xl md:text-6xl block mt-4">API Management Platform</span>
-                    </h1>
+                    <div className="flex justify-center items-center mb-8">
+                        <TypewriterEffectSmooth
+                            words={[
+                                {
+                                    text: "Build",
+                                    className: "text-white text-4xl md:text-7xl lg:text-8xl font-serif"
+                                },
+                                {
+                                    text: "Autonomous",
+                                    className: "text-white text-4xl md:text-7xl lg:text-8xl font-serif"
+                                },
+                                {
+                                    text: "APIs",
+                                    className: "text-white text-4xl md:text-7xl lg:text-8xl font-serif"
+                                },
+                                {
+                                    text: "with",
+                                    className: "text-white text-4xl md:text-7xl lg:text-8xl font-serif"
+                                },
+                                {
+                                    text: "AutoAPI.",
+                                    className: "text-accent text-4xl md:text-7xl lg:text-8xl font-serif"
+                                },
+                            ]}
+                            className="my-0"
+                            cursorClassName="bg-accent h-10 md:h-20 lg:h-24"
+                        />
+                    </div>
                     <p className="max-w-2xl mx-auto text-lg md:text-xl text-stone-400 font-light leading-relaxed mb-12">
                         Auto-generate, monitor, secure, and govern APIs — driven entirely by AI.
                     </p>
