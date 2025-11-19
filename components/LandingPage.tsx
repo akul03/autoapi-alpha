@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroScene } from './QuantumScene';
 import { EvervaultCard, Icon } from './ui/evervault-card';
 import { EncryptedText } from './ui/encrypted-text';
+import { AuthModal } from './AuthModal';
 import { ArrowDown, Check, Shield, Zap, Layout, Code, Lock, Activity, Terminal, Cpu, Globe, Server, BookOpen } from 'lucide-react';
 
 interface LandingPageProps {
@@ -66,8 +67,18 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 };
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
+    const [isAuthOpen, setIsAuthOpen] = React.useState(false);
+    const [authTab, setAuthTab] = React.useState<'login' | 'signup'>('login');
+
+    const openAuth = (tab: 'login' | 'signup') => {
+        setAuthTab(tab);
+        setIsAuthOpen(true);
+    };
+
     return (
         <div className="bg-[#020617] text-stone-200">
+            <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} defaultTab={authTab} />
+
             {/* Hero Section */}
             <header className="relative h-screen flex items-center justify-center overflow-hidden">
                 <HeroScene />
@@ -80,8 +91,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
                         AI-Native API Platform
                     </div>
                     <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight md:leading-[0.9] mb-8 text-white drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-                        The <EncryptedText text="Autonomous" className="text-white" /> <br />
-                        <span className="italic font-normal text-stone-400 text-4xl md:text-6xl block mt-4">API Management Platform</span>
+                        AutoAPI – <EncryptedText text="Autonomous" className="text-white" /> <br />
+                        <span className="italic font-normal text-stone-400 text-4xl md:text-6xl block mt-4">API Lifecycle Management Platform</span>
                     </h1>
                     <p className="max-w-2xl mx-auto text-lg md:text-xl text-stone-400 font-light leading-relaxed mb-12">
                         Auto-generate, monitor, secure, and govern APIs — driven entirely by AI.
@@ -89,16 +100,16 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigate }) => {
 
                     <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                         <button
-                            onClick={() => onNavigate('signup')}
-                            className="px-8 py-4 bg-accent text-stone-900 rounded-full font-bold hover:bg-cyan-400 transition-all shadow-glow transform hover:-translate-y-1"
+                            onClick={() => openAuth('signup')}
+                            className="px-8 py-4 bg-accent text-stone-900 rounded-full font-bold hover:bg-cyan-400 transition-all shadow-glow transform hover:-translate-y-1 z-20"
                         >
                             Get Started
                         </button>
                         <button
-                            onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="px-8 py-4 bg-transparent text-white border border-stone-600 rounded-full font-medium hover:bg-stone-800 hover:border-accent transition-all shadow-sm"
+                            onClick={() => openAuth('login')}
+                            className="px-8 py-4 bg-transparent text-white border border-stone-600 rounded-full font-medium hover:bg-stone-800 hover:border-accent transition-all shadow-sm z-20"
                         >
-                            See Live Demo
+                            Try Sandbox Environment
                         </button>
                     </div>
                 </div>
